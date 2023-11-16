@@ -6,6 +6,9 @@ set_tail(tail(token_ring_1), token_ring_1);
 let token_ring_2 = list(false, false, false);
 set_tail(tail(tail(token_ring_2)), token_ring_2);
 
+let token_ring_3 = list(true, false, false);
+set_tail(tail(tail(token_ring_3)), token_ring_3);
+
 function has_token(xs) {
     function helper(xs, ys) {
         if(head(xs)) {
@@ -36,5 +39,5 @@ function add_element(xs) {
 }
 
 function ring_to_stream(xs) {
-    
+    return pair(head(xs), () => ring_to_stream(tail(xs)));
 }
