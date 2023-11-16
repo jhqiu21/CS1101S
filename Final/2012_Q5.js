@@ -40,19 +40,51 @@ function all_subsequences (xs) {
     }
 }
 
-
-
-all_subsequences (list (1 ,2 ,3));
+// all_subsequences (list (1 ,2 ,3));
 // returns the following subsequences:
 // list( [], list(1), list(2), list(3),
 // list(1,2), list(1,3), list(2,3),
 // list(1,2,3)
 // )
 
-/*
+
 
 function longest_subsequence_length(s,t) {
+    // Dynamic Programming
+    let ls = length(s);
+    let lt = length(t);
     
+    function list_to_arr(L) {
+        let len = length(L);
+        let arr = [];
+        let k = 0;
+        for(let p = L; !is_null(p); p = tail(p)) {
+            arr[k] = head(p);
+            k = k + 1;
+        }
+        return arr;
+    }
+    let x = list_to_arr(s);
+    let y = list_to_arr(t);
+    // Construct a 2 dementational array
+    let len = [];
+    for (let i = 0; i <= ls; i = i + 1) {
+        len[i] = [];
+        for (let j = 0; j <= lt; j = j + 1) {
+            len[i][j] = 0;
+        }
+    }
+    // Remark: row === 0 and colomn === 0 is "empty"
+    for (let i = 1; i <= ls; i = i + 1) {
+        for (let j = 1; j <= lt; j = j + 1) {
+            if (x[i] === y[j]) {
+                len[i][j] = len[i - 1][j - 1] + 1;
+            } else {
+                len[i][j] = math_max(len[i][j - 1], len[i - 1][j]);
+            }
+        }
+    }  
+    return len[ls][lt];
 }
 
 longest_subsequence_length (list (1,2,6,1,3,1,4,1,2,6,1),
@@ -60,4 +92,3 @@ longest_subsequence_length (list (1,2,6,1,3,1,4,1,2,6,1),
 // returns 7 because a longest subsequence is
 // list(1,2,1,4,1,2,1)
 
-*/
