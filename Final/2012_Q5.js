@@ -30,7 +30,14 @@ function is_subsequence(xs, ys) {
 
 
 function all_subsequences (xs) {
-    
+    if (is_null(xs)) {
+        return list(null);
+    } else {
+        let rest = all_subsequences(tail(xs));
+        let x = head(xs);
+        let has_x = map(elem => pair(x, elem), rest);
+        return append(rest, has_x);
+    }
 }
 
 
