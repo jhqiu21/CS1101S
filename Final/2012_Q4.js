@@ -21,3 +21,20 @@ function has_token(xs) {
     return helper(xs, xs);
 }
 
+function move_token(xs) {
+    if (head(xs)) {
+        set_head(xs, false);
+        set_head(tail(xs), true);
+    } else {
+        move_token(tail(xs));
+    }
+}
+
+function add_element(xs) {
+    let p = pair(false, tail(xs));
+    set_tail(xs, p);
+}
+
+function ring_to_stream(xs) {
+    
+}
