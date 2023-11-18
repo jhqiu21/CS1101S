@@ -17,7 +17,6 @@ set_head(x, y);
 
 // Mutable List Processing
 
-
 function mutable_reverse(xs) {
     if (is_null(xs) || is_null(tail(xs))) {
         return xs;
@@ -38,6 +37,7 @@ function mutable_remove(v, xs) {
     if (is_null(xs)) {
         return xs;
     } else if (head(xs) === v) {
+        // Main different
         return tail(xs);
     } else {
         let rest = mutable_remove(v, tail(xs));
@@ -45,11 +45,6 @@ function mutable_remove(v, xs) {
         return xs;
     }
 }
-
-
-
-
-
 
 function mutable_remove_all(v, xs) {
     if (is_null(xs)) {
@@ -62,4 +57,12 @@ function mutable_remove_all(v, xs) {
         return xs;
     }
 }
+// Example usage
+let ras = list(1, 2, 3, 4, 3, 5, 3, 6, 5, 7, 10, 5, 4, 7, 5);
+let result = mutable_remove_all(3, ras);
+display(result); 
+display(rs);
 
+function mutable_merge(xs) {
+    
+}
