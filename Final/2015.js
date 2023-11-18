@@ -29,27 +29,37 @@ function mutable_reverse(xs) {
     }
 }
 
-function mutable_remove(v, xs) {
-    let len = length(xs);
-    
-}
+let as = list(1, 2, 3, 4, 5);
+let bs = mutable_reverse(as);
+// bs; // equal to list(5, 4, 3, 2, 1).
+// as; // equal to list(1)
 
-function mutable_remove_all(v, xs) {
-    let len = length(xs);
+function mutable_remove(v, xs) {
     if (is_null(xs)) {
         return xs;
-    } else if (is_null(tail(xs))) {
-        return v === head(xs)
-            ? null
-            : xs;
+    } else if (head(xs) === v) {
+        return tail(xs);
     } else {
-        
+        let rest = mutable_remove(v, tail(xs));
+        set_tail(xs, rest);
+        return xs;
     }
 }
 
 
 
-let as = list(1, 2, 3, 4, 5);
-let bs = mutable_reverse(as);
-bs; // equal to list(5, 4, 3, 2, 1).
-// as; // equal to list(1)
+
+
+
+function mutable_remove_all(v, xs) {
+    if (is_null(xs)) {
+        return xs;
+    } else if (head(xs) === v) {
+        return mutable_remove_all(v, tail(xs));
+    } else {
+        let rest = mutable_remove_all(v, tail(xs));
+        set_tail(xs, rest);
+        return xs;
+    }
+}
+
