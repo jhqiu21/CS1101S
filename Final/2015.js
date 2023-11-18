@@ -30,10 +30,22 @@ function mutable_reverse(xs) {
 }
 
 function mutable_remove(v, xs) {
+    let len = length(xs);
     
 }
 
-
+function mutable_remove_all(v, xs) {
+    let len = length(xs);
+    if (is_null(xs)) {
+        return xs;
+    } else if (is_null(tail(xs))) {
+        return v === head(xs)
+            ? null
+            : xs;
+    } else {
+        
+    }
+}
 
 
 
