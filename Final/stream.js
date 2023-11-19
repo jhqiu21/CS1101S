@@ -107,5 +107,5 @@ function skip_stream(s) {
 }
 
 function partial_sum(s) {
-    
+    return pair(head(s), () => add_streams(stream_tail(s), partial_sums(s)));
 }
