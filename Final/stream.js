@@ -37,6 +37,7 @@ function more(a, b) {
         : pair(a, () => more(a + 1, b));
 }
 
+function replace()
 
 function stream_map(f, s) {
     return is_null(s)
