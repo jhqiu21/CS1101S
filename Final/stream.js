@@ -100,7 +100,6 @@ function make_alternating_stream(s) {
 }
 
 function skip_stream(s) {
-    
 // takes an infinite stream as argument and returns an infinite 
 // stream that contains only every second element of the given stream.
     return pair(head(s), () => skip_stream(stream_tail(stream_tail(s))));
