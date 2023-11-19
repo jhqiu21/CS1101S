@@ -1,5 +1,9 @@
 // Stream 
 
+function stream_tail(stream) {
+    return tail(stream)();
+}
+
 function ones_stream() {
     return pair(1, ones_stream);
 }
