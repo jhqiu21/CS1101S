@@ -26,6 +26,15 @@ function stream_map(f, s) {
         : pair(f(head(s)), () => stream_map(f, stream_tail(s)));
 }
 
+function stream_filter(p, s) {
+    return is_null(s)
+        ? null
+        : p(head(s))
+            ? pair(head(s), () => stream_filter(p, stream_tail(s)))
+            : stream_filter(p, stream_tail(s));
+}
+
+function stream_acc()
 
 function make_alternating_stream(s) {
     return is_null(s)
