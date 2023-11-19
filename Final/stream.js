@@ -20,6 +20,24 @@ function stream_ref(s, n) {
         : stream_ref(stream_tail(s), n - 1);
 }
 
+function eval_stream(s, n) {
+    return n === 0
+        ? null
+        : pair(head(s), eval_stream(stream_tail(s), n - 1));
+}
+
+function fib_stream(a, b) {
+    return pair(a, () => fib_stream(b, a + b));
+}
+
+function more(a, b) {
+    // return 1, 1, 2, 1, 2, 3, 1, 2, 3, 4, 1...
+    return a > b
+        ? more(1, b + 1)
+        : pair(a, () => more(a + 1, b));
+}
+
+
 function stream_map(f, s) {
     return is_null(s)
         ? null
@@ -34,7 +52,6 @@ function stream_filter(p, s) {
             : stream_filter(p, stream_tail(s));
 }
 
-function stream_acc()
 
 function make_alternating_stream(s) {
     return is_null(s)
