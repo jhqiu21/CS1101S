@@ -10,7 +10,11 @@ function enum_stream(low, high) {
         : pair(low, () => enum_stream(low + 1, high));
 }
 
-
+function stream_ref(s, n) {
+    return n === 0
+        ? head(s)
+        : stream_ref(stream_tail(s), n - 1);
+}
 
 function make_alternating_stream(s) {
     return is_null(s)
