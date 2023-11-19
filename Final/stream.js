@@ -20,6 +20,13 @@ function stream_ref(s, n) {
         : stream_ref(stream_tail(s), n - 1);
 }
 
+function stream_map(f, s) {
+    return is_null(s)
+        ? null
+        : pair(f(head(s)), () => stream_map(f, stream_tail(s)));
+}
+
+
 function make_alternating_stream(s) {
     return is_null(s)
         ? null
