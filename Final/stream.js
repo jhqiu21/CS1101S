@@ -72,12 +72,7 @@ const fib_stream_ver2 = pair(0,
                             pair(1,
                                 () => add_streams(stream_tail(fib_stream_ver2),
                                                   fib_stream_ver2)));
-
-
-
-
-
-
+                                                  
 function stream_map(f, s) {
     return is_null(s)
         ? null
