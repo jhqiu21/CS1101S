@@ -17,4 +17,5 @@ function make_list(i, xs) {
 
 //make_list(100000, null);
 
-append_iter(make_list(100000, null), list(100001));
+// append_iter(make_list(100000, null), list(100001));
+append_iter(list(1, 2, 3, 4, 5), list(6, 7, 8, 9));
