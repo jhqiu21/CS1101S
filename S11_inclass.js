@@ -28,6 +28,7 @@ const integers = pair(1, () => integers); // An Infinite Stream
 // Q1(d)
 
 function stream_append_pickle(xs, ys) {
+    // expect second arguement to be wrapped in a nullary function
     return is_null(xs)
         ? ys()
         : pair(head(xs), () => stream_append_pickle(stream_tail(xs), ys));
@@ -40,8 +41,12 @@ function stream_pairs2(s) {
             stream_map(
                 sn => pair(head(s), sn),
                 stream_tail(s)),
+            // pass recursive call inside a nullary function as 
+            // a second arugrmrnt to stream_append_pickle
+            // this pickle will be activated when we reach the empty list
+            // at the end of the first arguement list
             () => stream_pairs(stream_tail(s)));
 }
 
-const s3 = stream_pairs2(integers); // 
+const s3 = stream_pairs2(integers);
 // eval_stream(s3, 10);
