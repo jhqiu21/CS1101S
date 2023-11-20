@@ -43,10 +43,36 @@ const integers = integers_from(1);
 const ones = pair(1, () => ones);
 
 
-
-
-
+// Q1
 
 const x = stream_map(display, enum_stream(0, 10));
+// stream_ref(x, 3);
+// stream_ref(x, 5);
+
+function stream_map_optimized(f, s) {
+    return is_null(s)
+        ? null
+        : pair(f(head(s)), 
+                memo_fun(() => stream_map_optimized(
+                                    f, stream_tail(s))));
+}
 stream_ref(x, 3);
 stream_ref(x, 5);
+
+
+// Q2
+
+function zip_list_of_stream(xs) {
+    return pair(head(head(xs)),
+                () => zip_list_of_stream(
+                        append(tail(xs), 
+                               list(stream_tail(head(xs))))));
+}
+
+const one = pair(1, () => one);
+const two = pair(2, () => two);
+const three = pair(3, () => three);
+let ls = list(one, two, three);
+
+eval_stream(zip_list_of_stream(ls), 10);
+
