@@ -1,7 +1,7 @@
 
 // Stream of Pairs
 
-// Q1
+// Q1(a)
 function stream_pairs(s) {
     return is_null(s)
         ? null
@@ -21,3 +21,7 @@ function ints(s, n) {
 const five = ints(1, 5);
 eval_stream(stream_pairs(five), 10);
 
+// Q1(c)
+
+const integers = pair(1, () => integers);
+ const s2 = stream_pairs(integers);
