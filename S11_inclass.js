@@ -19,10 +19,10 @@ function ints(s, n) {
 }
 
 const five = ints(1, 5);
-eval_stream(stream_pairs(five), 10);
+// eval_stream(stream_pairs(five), 10);
 
 // Q1(c)
-const integers = pair(1, () => integers); // An Infinite Stream
+const integers = integers_from(1); // An Infinite Stream
 // const s2 = stream_pairs(integers); // Runs forever
 
 // Q1(d)
@@ -62,7 +62,8 @@ function interleave_stream_append(s1, s2) {
     // in an interleaving manner
     return is_null(s1)
         ? s2
-        : pair(head(s1), () => interleave_stream_append(s2, tail(s1)));
+        : pair(head(s1), () => interleave_stream_append(s2, 
+                                                        stream_tail(s1)));
 }
 
 function stream_pairs3(s) {
@@ -76,6 +77,6 @@ function stream_pairs3(s) {
 }
 
 const s4 = stream_pairs3(integers);
-// eval_stream(s4, 10);
+eval_stream(s4, 10);
 
 
