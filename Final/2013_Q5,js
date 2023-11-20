@@ -1,0 +1,8 @@
+// 2013 Q5 Merging Streams
+
+function merge_stream(s1, s2) {
+    return null;
+}
+
+let s1 = stream(1, 2, 3);
+let s2 = stream(10, 20, 30, 40, 50);
