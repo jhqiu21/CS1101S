@@ -13,4 +13,14 @@ function merge_stream(s1, s2) {
 let s1 = stream(1, 2, 3);
 let s2 = stream(10, 20, 30, 40, 50);
 
-eval_stream(merge_stream(s1, s2), 8);
+// eval_stream(merge_stream(s1, s2), 8);
+
+let s21 = pair(1, () => s21);
+let s22 = pair(2, () => s22);
+let s23 = pair(3, () => s23);
+let s24 = pair(4, () => s24);
+
+let ms4 = merge_stream(merge_stream(s21, s23), merge_stream(s22, s24));
+let ms31 = merge_stream(merge_stream(s21, s23), s22);
+// eval_stream(ms, 12);
+eval_stream(ms31, 12);
