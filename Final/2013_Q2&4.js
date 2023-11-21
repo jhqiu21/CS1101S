@@ -1,5 +1,27 @@
 // 2013 Function Questions
 
+// Q2 Functioning Numbers
+
+function one(x) {
+    return x + 1;
+}
+
+function two(x) {
+    return x + 2;
+}
+
+function three(x) {
+    return x + 3;
+}
+
+
+
+
+
+
+
+
+
 
 
 
