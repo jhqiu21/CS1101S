@@ -50,30 +50,3 @@ let x3 = stream(111, 222, 333, 444, 555);
 const ss = merge_list_of_stream(list(x1, x2, x3));
 eval_stream(ss, 12);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
