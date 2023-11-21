@@ -1,8 +1,16 @@
 // 2013 Q5 Merging Streams
 
 function merge_stream(s1, s2) {
-    return null;
+    if (is_null(s1)) {
+        return s2;
+    } else if (is_null(s2)) {
+        return s1;
+    } else {
+        return pair(head(s1), () => merge_stream(s2, stream_tail(s1)));
+    }
 }
 
 let s1 = stream(1, 2, 3);
 let s2 = stream(10, 20, 30, 40, 50);
+
+eval_stream(merge_stream(s1, s2), 8);
