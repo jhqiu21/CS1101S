@@ -1,2 +1,3 @@
-# CS1101S
-CS1101S Programming Methodology
+# CS1101S Programming Methodology
+
+CS1101S Material
